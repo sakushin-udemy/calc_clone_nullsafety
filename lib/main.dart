@@ -1,5 +1,10 @@
+import 'package:calc_clone/widgets/button.dart';
+import 'package:calc_clone/widgets/keypad.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'constants.dart';
+import 'logic.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,58 +33,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // 色の定義
-  static const Color colorMain = Colors.black;
-  static const Color colorNum = Colors.white10;
-  static const Color colorFunc = Colors.white54;
-  static const Color colorCalc = Colors.orange;
-  static const Color colorText = Colors.white;
-
   String txtResult = "0";
 
-  static const Map<String, IconData> _mapIcon = {
-    "+/-": CupertinoIcons.plus_slash_minus,
-    "%": CupertinoIcons.percent,
-    "/": CupertinoIcons.divide,
-    "x": CupertinoIcons.multiply,
-    "-": CupertinoIcons.minus,
-    "+": CupertinoIcons.plus,
-    "=": CupertinoIcons.equal,
-  };
-
-  int _counter = 0;
-
-  Widget Button(String text, Color colorButton, Color colorText) {
-    return Container(
-        padding: const EdgeInsets.symmetric(vertical: 5),
-        child: ElevatedButton(
-          child: Padding(
-            padding: text == "0"
-                ? const EdgeInsets.only(
-                    left: 20, top: 20, right: 120, bottom: 20)
-                : text.length == 1
-                    ? const EdgeInsets.all(22)
-                    : const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
-            child: _mapIcon.containsKey(text)
-                ? Icon(
-                    _mapIcon[text],
-                    size: 30,
-                  )
-                : Text(
-                    text,
-                    style: const TextStyle(fontSize: 30),
-                  ),
-          ),
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: colorButton,
-            onPrimary: colorText,
-            shape: text == "0" ? const StadiumBorder() : const CircleBorder(),
-          ),
-        ));
-  }
+  Logic _logic = Logic();
 
   Widget build(BuildContext context) {
+    Function onPress = (String text) {
+      _logic.input(text);
+      setState(() {
+        txtResult = _logic.text;
+      });
+    };
+
     return Scaffold(
       backgroundColor: colorMain,
       body: Container(
@@ -92,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: Text(
                     txtResult,
+                    key: Key("txtResult"),
                     style: const TextStyle(
                       color: colorText,
                       fontSize: 60,
@@ -102,54 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Button("C", colorFunc, colorMain),
-                Button("+/-", colorFunc, colorMain),
-                Button("%", colorFunc, colorMain),
-                Button("/", colorCalc, colorText),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Button("7", colorNum, colorText),
-                Button("8", colorNum, colorText),
-                Button("9", colorNum, colorText),
-                Button("x", colorCalc, colorText),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Button("4", colorNum, colorText),
-                Button("5", colorNum, colorText),
-                Button("6", colorNum, colorText),
-                Button("-", colorCalc, colorText),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Button("1", colorNum, colorText),
-                Button("2", colorNum, colorText),
-                Button("3", colorNum, colorText),
-                Button("+", colorCalc, colorText),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Button("0", colorNum, colorText),
-                Button(".", colorNum, colorText),
-                Button("=", colorCalc, colorText),
-              ],
-            ),
+            KeyPad(onPress),
           ],
         ),
       ),
     );
-  } // end of state class
-
-}
+  }
+} // end of state class
