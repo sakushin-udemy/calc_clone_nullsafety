@@ -4,7 +4,7 @@ import 'package:calc_clone/logic.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  Logic logic;
+  late Logic logic;
   setUp(() {
     logic = Logic();
   });

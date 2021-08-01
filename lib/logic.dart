@@ -169,7 +169,7 @@ class Logic {
   }
 
   double round(double value, int degit) {
-    int key = math.pow(10, degit);
+    int key = math.pow(10, degit) as int;
     return (value * key).roundToDouble() / key;
   }
 }

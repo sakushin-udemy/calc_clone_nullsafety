@@ -83,7 +83,7 @@ void main() {
       Finder finder = find.byType(Material);
       Material material = tester.widget(finder);
       expect(material.color, Colors.black);
-      expect(material.textStyle.color, Colors.white);
+      expect(material.textStyle?.color, Colors.white);
     });
 
     testWidgets("2", (WidgetTester tester) async {
@@ -98,7 +98,7 @@ void main() {
       Finder finder = find.byType(Material);
       Material material = tester.widget(finder);
       expect(material.color, Colors.white);
-      expect(material.textStyle.color, Colors.black);
+      expect(material.textStyle?.color, Colors.black);
     });
   });
 }

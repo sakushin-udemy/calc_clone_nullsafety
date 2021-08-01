@@ -10,7 +10,7 @@ class Button extends StatelessWidget {
   final Color colorButton;
   final Color colorText;
 
-  final funcOnPress onPressed;
+  final funcOnPress? onPressed;
 
   Button(this.text, this.colorButton, this.colorText, this.onPressed)
       : super(key: Key(text));
@@ -38,7 +38,7 @@ class Button extends StatelessWidget {
                   ),
           ),
           onPressed: () {
-            onPressed(text);
+            onPressed!(text);
           },
           style: ElevatedButton.styleFrom(
             primary: colorButton,

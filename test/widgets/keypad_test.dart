@@ -143,14 +143,14 @@ void main() {
         expect(finderText, findsOneWidget);
         Material material = tester.firstWidget(finderText);
         expect(material.color, colorNum);
-        expect(material.textStyle.color, colorText);
+        expect(material.textStyle?.color, colorText);
       }
 
       Finder finderText = find.widgetWithText(Material, ".");
       expect(finderText, findsOneWidget);
       Material material = tester.firstWidget(finderText);
       expect(material.color, colorNum);
-      expect(material.textStyle.color, colorText);
+      expect(material.textStyle?.color, colorText);
     });
 
     testWidgets("背景灰色", (WidgetTester tester) async {
@@ -166,7 +166,7 @@ void main() {
       expect(finderText, findsOneWidget);
       Material material = tester.firstWidget(finderText);
       expect(material.color, colorFunc);
-      expect(material.textStyle.color, colorMain);
+      expect(material.textStyle?.color, colorMain);
 
       List<IconData> icons = [
         CupertinoIcons.plus_slash_minus,
@@ -178,7 +178,7 @@ void main() {
         expect(finderIcon, findsOneWidget);
         Material material = tester.firstWidget(finderIcon);
         expect(material.color, colorFunc);
-        expect(material.textStyle.color, colorMain);
+        expect(material.textStyle?.color, colorMain);
       }
     });
 
@@ -204,7 +204,7 @@ void main() {
         expect(finderIcon, findsOneWidget);
         Material material = tester.firstWidget(finderIcon);
         expect(material.color, colorCalc);
-        expect(material.textStyle.color, colorText);
+        expect(material.textStyle?.color, colorText);
       }
     });
   });

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 import 'package:intl/intl.dart' as intl;
 
 void main() {
-  FlutterDriver driver;
+  late FlutterDriver driver;
   final SerializableFinder key1Finder = find.text("1");
   final SerializableFinder key2Finder = find.text("2");
   final SerializableFinder key3Finder = find.text("3");
@@ -29,7 +29,7 @@ void main() {
 
   const String pathScreenshot = "./test_driver/screenshots";
   final intl.DateFormat dateFormat = intl.DateFormat("yyyyMMdd_HHmmss");
-  String fullDir;
+  late String fullDir;
 
   setUpAll(() async {
     driver = await FlutterDriver.connect();
