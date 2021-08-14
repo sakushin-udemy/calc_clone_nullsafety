@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("テキスト", () {
-    testWidgets("数字", (WidgetTester tester) async {
+  group('テキスト', () {
+    testWidgets('数字', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: KeyPad(null),
@@ -19,7 +19,7 @@ void main() {
         expect(find.text(i.toString()), findsOneWidget);
       }
     });
-    testWidgets("文字", (WidgetTester tester) async {
+    testWidgets('文字', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: KeyPad(null),
@@ -27,15 +27,15 @@ void main() {
       );
 
       await tester.pump();
-      expect(find.text("C"), findsOneWidget);
-      expect(find.text("."), findsOneWidget);
+      expect(find.text('C'), findsOneWidget);
+      expect(find.text('.'), findsOneWidget);
 
-      expect(find.text("+"), findsNothing);
-      expect(find.text("="), findsNothing);
+      expect(find.text('+'), findsNothing);
+      expect(find.text('='), findsNothing);
     });
   });
 
-  testWidgets("アイコン", (WidgetTester tester) async {
+  testWidgets('アイコン', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
         home: KeyPad(null),
@@ -52,10 +52,10 @@ void main() {
     expect(find.byIcon(CupertinoIcons.equal), findsOneWidget);
   });
 
-  group("キータップ", () {
-    testWidgets("数字", (WidgetTester tester) async {
-      String result = "";
-      funcOnPress onPress = (text) {
+  group('キータップ', () {
+    testWidgets('数字', (WidgetTester tester) async {
+      String result = '';
+      FunctionOnPressed onPress = (text) {
         result = result + text;
       };
 
@@ -66,23 +66,23 @@ void main() {
       );
 
       await tester.pump();
-      await tester.tap(find.text("1"));
-      await tester.tap(find.text("2"));
-      await tester.tap(find.text("3"));
-      await tester.tap(find.text("4"));
-      await tester.tap(find.text("5"));
-      await tester.tap(find.text("6"));
-      await tester.tap(find.text("7"));
-      await tester.tap(find.text("8"));
-      await tester.tap(find.text("9"));
-      await tester.tap(find.text("0"));
+      await tester.tap(find.text('1'));
+      await tester.tap(find.text('2'));
+      await tester.tap(find.text('3'));
+      await tester.tap(find.text('4'));
+      await tester.tap(find.text('5'));
+      await tester.tap(find.text('6'));
+      await tester.tap(find.text('7'));
+      await tester.tap(find.text('8'));
+      await tester.tap(find.text('9'));
+      await tester.tap(find.text('0'));
 
-      expect(result, "1234567890");
+      expect(result, '1234567890');
     });
 
-    testWidgets("文字", (WidgetTester tester) async {
-      String result = "";
-      funcOnPress onPress = (text) {
+    testWidgets('文字', (WidgetTester tester) async {
+      String result = '';
+      FunctionOnPressed onPress = (text) {
         result = result + text;
       };
 
@@ -93,15 +93,15 @@ void main() {
       );
 
       await tester.pump();
-      await tester.tap(find.text("C"));
-      await tester.tap(find.text("."));
+      await tester.tap(find.text('C'));
+      await tester.tap(find.text('.'));
 
-      expect(result, "C.");
+      expect(result, 'C.');
     });
 
-    testWidgets("アイコン", (WidgetTester tester) async {
-      String result = "";
-      funcOnPress onPress = (text) {
+    testWidgets('アイコン', (WidgetTester tester) async {
+      String result = '';
+      FunctionOnPressed onPress = (text) {
         result = result + text;
       };
 
@@ -120,12 +120,12 @@ void main() {
       await tester.tap(find.byIcon(CupertinoIcons.plus));
       await tester.tap(find.byIcon(CupertinoIcons.equal));
 
-      expect(result, "+/-%/x-+=");
+      expect(result, '+/-%/x-+=');
     });
   });
 
-  group("色", () {
-    testWidgets("数字", (WidgetTester tester) async {
+  group('色', () {
+    testWidgets('数字', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: KeyPad(null),
@@ -146,14 +146,14 @@ void main() {
         expect(material.textStyle?.color, colorText);
       }
 
-      Finder finderText = find.widgetWithText(Material, ".");
+      Finder finderText = find.widgetWithText(Material, '.');
       expect(finderText, findsOneWidget);
       Material material = tester.firstWidget(finderText);
       expect(material.color, colorNum);
       expect(material.textStyle?.color, colorText);
     });
 
-    testWidgets("背景灰色", (WidgetTester tester) async {
+    testWidgets('背景灰色', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: KeyPad(null),
@@ -162,7 +162,7 @@ void main() {
 
       await tester.pump();
 
-      Finder finderText = find.widgetWithText(Material, "C");
+      Finder finderText = find.widgetWithText(Material, 'C');
       expect(finderText, findsOneWidget);
       Material material = tester.firstWidget(finderText);
       expect(material.color, colorFunc);
@@ -182,7 +182,7 @@ void main() {
       }
     });
 
-    testWidgets("背景オレンジ", (WidgetTester tester) async {
+    testWidgets('背景オレンジ', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: KeyPad(null),

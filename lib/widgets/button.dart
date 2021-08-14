@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-typedef funcOnPress = void Function(String text);
+typedef FunctionOnPressed = void Function(String text);
 
 class Button extends StatelessWidget {
   final String text;
   final Color colorButton;
   final Color colorText;
 
-  final funcOnPress? onPressed;
+  final FunctionOnPressed? onPressed;
 
   Button(this.text, this.colorButton, this.colorText, this.onPressed)
       : super(key: Key(text));
@@ -21,7 +21,7 @@ class Button extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: ElevatedButton(
           child: Padding(
-            padding: text == "0"
+            padding: text == '0'
                 ? const EdgeInsets.only(
                     left: 20, top: 20, right: 120, bottom: 20)
                 : text.length == 1
@@ -43,7 +43,7 @@ class Button extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             primary: colorButton,
             onPrimary: colorText,
-            shape: text == "0" ? const StadiumBorder() : const CircleBorder(),
+            shape: text == '0' ? const StadiumBorder() : const CircleBorder(),
           ),
         ));
   }

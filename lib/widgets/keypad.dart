@@ -4,8 +4,8 @@ import '../constants.dart';
 import 'button.dart';
 
 class KeyPad extends StatelessWidget {
-  funcOnPress? onPress;
-  KeyPad(this.onPress);
+  FunctionOnPressed? onPressed;
+  KeyPad(this.onPressed);
 
   @override
   Widget build(BuildContext context) {
@@ -14,45 +14,45 @@ class KeyPad extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Button("C", colorFunc, colorMain, onPress),
-            Button("+/-", colorFunc, colorMain, onPress),
-            Button("%", colorFunc, colorMain, onPress),
-            Button("/", colorCalc, colorText, onPress),
+            Button('C', colorFunc, colorMain, onPressed),
+            Button('+/-', colorFunc, colorMain, onPressed),
+            Button('%', colorFunc, colorMain, onPressed),
+            Button('/', colorCalc, colorText, onPressed),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Button("7", colorNum, colorText, onPress),
-            Button("8", colorNum, colorText, onPress),
-            Button("9", colorNum, colorText, onPress),
-            Button("x", colorCalc, colorText, onPress),
+            Button('7', colorNum, colorText, onPressed),
+            Button('8', colorNum, colorText, onPressed),
+            Button('9', colorNum, colorText, onPressed),
+            Button('x', colorCalc, colorText, onPressed),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Button("4", colorNum, colorText, onPress),
-            Button("5", colorNum, colorText, onPress),
-            Button("6", colorNum, colorText, onPress),
-            Button("-", colorCalc, colorText, onPress),
+            Button('4', colorNum, colorText, onPressed),
+            Button('5', colorNum, colorText, onPressed),
+            Button('6', colorNum, colorText, onPressed),
+            Button('-', colorCalc, colorText, onPressed),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Button("1", colorNum, colorText, onPress),
-            Button("2", colorNum, colorText, onPress),
-            Button("3", colorNum, colorText, onPress),
-            Button("+", colorCalc, colorText, onPress),
+            Button('1', colorNum, colorText, onPressed),
+            Button('2', colorNum, colorText, onPressed),
+            Button('3', colorNum, colorText, onPressed),
+            Button('+', colorCalc, colorText, onPressed),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Button("0", colorNum, colorText, onPress),
-            Button(".", colorNum, colorText, onPress),
-            Button("=", colorCalc, colorText, onPress),
+            Button('0', colorNum, colorText, onPressed),
+            Button('.', colorNum, colorText, onPressed),
+            Button('=', colorCalc, colorText, onPressed),
           ],
         ),
       ],

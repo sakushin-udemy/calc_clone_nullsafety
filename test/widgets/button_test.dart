@@ -3,78 +3,78 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("テキスト", () {
-    testWidgets("0", (WidgetTester tester) async {
+  group('テキスト', () {
+    testWidgets('0', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("0", Colors.black, Colors.white, null),
+          home: Button('0', Colors.black, Colors.white, null),
         ),
       );
 
       await tester.pump();
-      expect(find.text("0"), findsOneWidget);
-      expect(find.text("1"), findsNothing);
+      expect(find.text('0'), findsOneWidget);
+      expect(find.text('1'), findsNothing);
     });
 
-    testWidgets("1", (WidgetTester tester) async {
+    testWidgets('1', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("1", Colors.black, Colors.white, null),
+          home: Button('1', Colors.black, Colors.white, null),
         ),
       );
 
       await tester.pump();
-      expect(find.text("1"), findsOneWidget);
-      expect(find.text("0"), findsNothing);
+      expect(find.text('1'), findsOneWidget);
+      expect(find.text('0'), findsNothing);
     });
   });
 
-  group("押されたときの処理", () {
-    testWidgets("1", (WidgetTester tester) async {
-      String result = "";
-      funcOnPress onPress = (String text) {
+  group('押されたときの処理', () {
+    testWidgets('1', (WidgetTester tester) async {
+      String result = '';
+      FunctionOnPressed onPress = (String text) {
         result = text;
       };
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("1", Colors.black, Colors.white, onPress),
+          home: Button('1', Colors.black, Colors.white, onPress),
         ),
       );
 
       await tester.pump();
 
-      expect(result, "");
-      Finder finder = find.text("1");
+      expect(result, '');
+      Finder finder = find.text('1');
       await tester.tap(finder);
-      expect(result, "1");
+      expect(result, '1');
     });
 
-    testWidgets("2", (WidgetTester tester) async {
-      String result = "";
-      funcOnPress onPress = (String text) {
+    testWidgets('2', (WidgetTester tester) async {
+      String result = '';
+      FunctionOnPressed onPress = (String text) {
         result = text;
       };
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("2", Colors.black, Colors.white, onPress),
+          home: Button('2', Colors.black, Colors.white, onPress),
         ),
       );
 
       await tester.pump();
 
-      expect(result, "");
-      await tester.tap(find.text("2"));
-      expect(result, "2");
+      expect(result, '');
+      await tester.tap(find.text('2'));
+      expect(result, '2');
     });
   });
 
-  group("色", () {
-    testWidgets("1", (WidgetTester tester) async {
+  group('色', () {
+    testWidgets('1', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("1", Colors.black, Colors.white, null),
+          home: Button('1', Colors.black, Colors.white, null),
         ),
       );
 
@@ -86,10 +86,10 @@ void main() {
       expect(material.textStyle?.color, Colors.white);
     });
 
-    testWidgets("2", (WidgetTester tester) async {
+    testWidgets('2', (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Button("2", Colors.white, Colors.black, null),
+          home: Button('2', Colors.white, Colors.black, null),
         ),
       );
 

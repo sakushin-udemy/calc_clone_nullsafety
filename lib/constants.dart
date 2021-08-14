@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const Map<String, IconData> mapIcon = {
-  "+/-": CupertinoIcons.plus_slash_minus,
-  "%": CupertinoIcons.percent,
-  "/": CupertinoIcons.divide,
-  "x": CupertinoIcons.multiply,
-  "-": CupertinoIcons.minus,
-  "+": CupertinoIcons.plus,
-  "=": CupertinoIcons.equal,
+  '+/-': CupertinoIcons.plus_slash_minus,
+  '%': CupertinoIcons.percent,
+  '/': CupertinoIcons.divide,
+  'x': CupertinoIcons.multiply,
+  '-': CupertinoIcons.minus,
+  '+': CupertinoIcons.plus,
+  '=': CupertinoIcons.equal,
 };
 
 // 色の定義
