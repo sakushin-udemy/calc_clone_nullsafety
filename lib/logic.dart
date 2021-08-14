@@ -104,9 +104,9 @@ class Logic {
     } else {
       // 数値の入力
 
-      int degit = getNumberOfDigits(_currentValue);
+      int numberOfDigits = getNumberOfDigits(_currentValue);
 
-      if (degit + _numAfterPoint == MAX_NUMBER_OF_DIGITS) {
+      if (numberOfDigits + _numAfterPoint == MAX_NUMBER_OF_DIGITS) {
         // 最大桁数のため、入力させない
       } else if (_hasPoint) {
         _numAfterPoint++;

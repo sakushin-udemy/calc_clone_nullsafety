@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Logic _logic = Logic();
 
   Widget build(BuildContext context) {
-    FunctionOnPressed onPress = (String text) {
+    FunctionOnPressed onPressed = (String text) {
       _logic.input(text);
       setState(() {
         txtResult = _logic.text;
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            KeyPad(onPress),
+            KeyPad(onPressed),
           ],
         ),
       ),
