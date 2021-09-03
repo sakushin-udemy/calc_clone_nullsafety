@@ -4,7 +4,7 @@ import '../constants.dart';
 import 'button.dart';
 
 class KeyPad extends StatelessWidget {
-  FunctionOnPressed? onPressed;
+  final FunctionOnPressed? onPressed;
   KeyPad(this.onPressed);
 
   @override

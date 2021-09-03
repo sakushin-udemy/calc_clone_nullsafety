@@ -35,10 +35,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String txtResult = '0';
 
-  Logic _logic = Logic();
+  final Logic _logic = Logic();
 
   Widget build(BuildContext context) {
-    FunctionOnPressed onPressed = (String text) {
+    final FunctionOnPressed onPressed = (String text) {
       _logic.input(text);
       setState(() {
         txtResult = _logic.text;
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: Text(
                     txtResult,
-                    key: Key('txtResult'),
+                    key: const Key('txtResult'),
                     style: const TextStyle(
                       color: colorText,
                       fontSize: 60,
