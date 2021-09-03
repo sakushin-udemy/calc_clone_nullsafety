@@ -47,7 +47,8 @@ class Logic {
   /// 小数点以下の数
   int _numAfterPoint = 0;
 
-  intl.NumberFormat formatter = intl.NumberFormat('#,###.########', 'en_US');
+  final intl.NumberFormat formatter =
+      intl.NumberFormat('#,###.########', 'en_US');
 
   void input(String text) {
     if (text == '.') {
