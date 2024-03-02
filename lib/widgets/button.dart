@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -25,24 +24,24 @@ class Button extends StatelessWidget {
                 ? const EdgeInsets.only(
                     left: 20, top: 20, right: 120, bottom: 20)
                 : text.length == 1
-                    ? const EdgeInsets.all(22)
-                    : const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
+                    ? const EdgeInsets.symmetric(vertical: 20, horizontal: 15)
+                    : const EdgeInsets.symmetric(horizontal: 8, vertical: 22),
             child: mapIcon.containsKey(text)
                 ? Icon(
                     mapIcon[text],
-                    size: 30,
+                    size: 25,
                   )
                 : Text(
                     text,
-                    style: const TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 32),
                   ),
           ),
           onPressed: () {
             onPressed!(text);
           },
           style: ElevatedButton.styleFrom(
-            primary: colorButton,
-            onPrimary: colorText,
+            foregroundColor: colorText,
+            backgroundColor: colorButton,
             shape: text == '0' ? const StadiumBorder() : const CircleBorder(),
           ),
         ));
